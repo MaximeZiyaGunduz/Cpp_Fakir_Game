@@ -21,7 +21,7 @@ void Fakir_game() {
     // Génération Variable
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> distribution(1, 100);
+    std::uniform_int_distribution<int> distribution(0, 100);
 
     rand_nb = distribution(gen);
 
@@ -50,12 +50,12 @@ void Fakir_game() {
 
         // Cas : Execution au 1er tour
         if (i == 1) {
-            std::cout << "Je pense a un nombre en 1 et 100 inclu ! Je pense a quelle nombre ?" << std::endl;
+            std::cout << "Je pense a un nombre en 0 et 100 inclu ! Je pense a quelle nombre ?" << std::endl;
         }
 
         // Saisie Controler 
         do {
-            std::cout << "Veuillez entrer un nombre entre 1 et 100: " << std::endl;
+            std::cout << "Veuillez entrer un nombre entre 0 et 100: " << std::endl;
             std::cin >> nb_saisi;
         
             /*
@@ -67,13 +67,14 @@ void Fakir_game() {
                 std::cout << "Au revoir" << std::endl;
                 exit(0);
             }
-           */
+           
 
             // Cas : QUITTER
              if (nb_saisi == 0) {
                  std::cout << "Au revoir" << std::endl;
                  exit(0);
              }
+            */
             
             // Cas : Saisie Incorrect 
             if (std::cin.fail()) {
@@ -81,8 +82,8 @@ void Fakir_game() {
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
                 continue; 
             }
-            if (nb_saisi < 1 || nb_saisi > 100) {
-                std::cout << "Entrée non valide. Veuillez entrer un nombre entre 1 et 100.\n" << std::endl;
+            if (nb_saisi < 0 || nb_saisi > 100) {
+                std::cout << "Entrée non valide. Veuillez entrer un nombre entre 0 et 100.\n" << std::endl;
                 continue; 
             }
 
