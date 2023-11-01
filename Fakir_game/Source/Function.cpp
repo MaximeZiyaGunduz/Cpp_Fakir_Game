@@ -10,6 +10,16 @@
 #include <random>
 #include <conio.h>
 
+ /**
+  * @brief Fonction du jeu du Fakir.
+  * @param : Vide
+  * @return : void
+  * 
+  * Cette fonction permet de jouer au jeu du Fakir.
+  * Un nombre entre 0 et 100 est générer, et le joueur doit deviner ce nombre en un maximum de 5 tentatives.
+  * À la fin de la partie, le joueur peut choisir de rejouer ou de quitter.
+  */
+
 void Fakir_game() {
 
     // Initialisation Variable
@@ -29,7 +39,7 @@ void Fakir_game() {
 
         // Cas : Perdu
         if (i == 6) {
-            std::cout << "Vous avez perdu ! \nJ'ai penser au nombre : " << rand_nb << "\nVoulez vous rejouer (O/N) ?" << std::endl;
+            std::cout << "Vous avez perdu ! \nJ'ai penser au nombre : " << rand_nb << "\nVoulez vous rejouer (O : Oui / Non : N'importe quelle touche) ?" << std::endl;
             std::cin >> choix;
 
             // Cas: Demande de rejouer
@@ -57,7 +67,7 @@ void Fakir_game() {
         do {
             std::cout << "Veuillez entrer un nombre entre 0 et 100: " << std::endl;
             std::cin >> nb_saisi;
-        
+
             /*
             std::cin >> choix;
 
@@ -67,28 +77,29 @@ void Fakir_game() {
                 std::cout << "Au revoir" << std::endl;
                 exit(0);
             }
-           
+           */
 
-            // Cas : QUITTER
-             if (nb_saisi == 0) {
-                 std::cout << "Au revoir" << std::endl;
-                 exit(0);
-             }
+           // Cas : QUITTER
+            /*
+            if (nb_saisi == 0) {
+                std::cout << "Au revoir" << std::endl;
+                exit(0);
+            }
             */
-            
+
             // Cas : Saisie Incorrect 
             if (std::cin.fail()) {
-                std::cin.clear(); 
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
-                continue; 
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                continue;
             }
             if (nb_saisi < 0 || nb_saisi > 100) {
-                std::cout << "Entrée non valide. Veuillez entrer un nombre entre 0 et 100.\n" << std::endl;
-                continue; 
+                std::cout << "Entrée non valide. Veuillez entrer un nombre entre 0 et 100 inclu.\n" << std::endl;
+                continue;
             }
 
             // Saisie Correct
-            break; 
+            break;
 
         } while (true);
 
@@ -102,7 +113,7 @@ void Fakir_game() {
 
         }
         else {
-            std::cout << "Félicitation ! \nJ'ai penser au nombre " << rand_nb << "\nVoulez vous rejouer (O/N) ?" << std::endl;
+            std::cout << "Félicitation ! \nJ'ai penser au nombre " << rand_nb << "\nVoulez vous rejouer (O : Oui / Non : N'importe quelle touche) ?" << std::endl;
             std::cin >> choix;
 
             // Cas : Demande de rejouer
